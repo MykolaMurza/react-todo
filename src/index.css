@@ -26,10 +26,36 @@ body {
 .todo__sidebar {
   background-color: #F4F6F8;
   width: 200px;
-  height: 100%;
+  height: calc(100% - 120px);
   border-right: 1px solid #F1F1F1;
   padding: 60px 20px;
   font-size: 14px;
+}
+.button {
+  background-color: #4DD599;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #34cf8b;
+}
+.button:active {
+  background-color: #2ec180;
+}
+
+.field {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+}
+.field:focus {
+  border-color: #DBDBDB;
 }
 
 /*# sourceMappingURL=index.css.map */

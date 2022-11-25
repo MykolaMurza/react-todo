@@ -1,14 +1,16 @@
-import React from 'react';
-import './List.scss'
+import React from "react";
+import classNames from "classnames";
+import Badge from "../Badge/Badge";
+import "./List.scss";
 
 const List = (props) => {
-    return <ul className={"list"}>
+    return <ul onClick={props.onClick} className={"list"}>
         {
-            props.items.map(item =>
-                <li className={item.active ? "active" : ""}>
+            props.items.map((item, index) =>
+                <li key={index} className={classNames(item.className, {"active": item.active},)}>
                     <i>
                         {item.svg ? item.svg :
-                            <i className={`badge badge--${item.color}`}></i>
+                            <Badge color={item.color}/>
                         }
                     </i>
                     <span>{item.name}</span>
