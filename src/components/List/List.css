@@ -5,6 +5,9 @@
   opacity: 0.6;
 }
 .list__add-button:hover {
+  opacity: 0.8;
+}
+.list__add-button:active {
   opacity: 1;
 }
 .list span {

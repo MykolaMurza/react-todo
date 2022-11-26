@@ -22,7 +22,7 @@ const AddList = ({onAddList, colors}) => {
             return;
         }
 
-        const color = colors.filter(color => color.id === selectedColor)[0].name;
+        const color = colors.find(color => color.id === selectedColor).name;
         onAddList({
             name: inputValue,
             colorId: selectedColor,
@@ -33,28 +33,30 @@ const AddList = ({onAddList, colors}) => {
         onClose();
     }
 
-    return (<div className={"add-list"}>
-        <List items={[{
-            className: "list__add-button",
-            svg: <img src={openSvg} alt={"Create category icon"}/>,
-            name: "Add category"
-        }]}
-              onClick={() => setVisiblePopupState(!visiblePopup)}/>
-        {visiblePopup && <div className={"add-list__popup"}>
-            <img onClick={onClose} src={closeSvg} alt={"Close button"}
-                 className={"add-list__popup-close-btn"}/>
-            <input className={"field"} type={"text"} placeholder={"Category name..."} value={inputValue}
-                   onChange={event => setInputValue(event.target.value)}/>
-            <div className={"add-list__popup-colors"}>
-                {
-                    colors.map(color => <Badge onClick={() => selectColor(color.id)} key={color.id}
-                                               color={color.name}
-                                               className={selectedColor === color.id && "active"}/>)
-                }
-            </div>
-            <button onClick={addList} className={"button"}>Add</button>
-        </div>}
-    </div>);
+    return (
+        <div className={"add-list"}>
+            <List items={[{
+                className: "list__add-button",
+                svg: <img src={openSvg} alt={"Create category icon"}/>,
+                name: "Add category"
+            }]}
+                  onClick={() => setVisiblePopupState(!visiblePopup)}/>
+            {visiblePopup && <div className={"add-list__popup"}>
+                <img onClick={onClose} src={closeSvg} alt={"Close button"}
+                     className={"add-list__popup-close-btn"}/>
+                <input className={"field"} type={"text"} placeholder={"Category name..."} value={inputValue}
+                       onChange={event => setInputValue(event.target.value)}/>
+                <div className={"add-list__popup-colors"}>
+                    {
+                        colors.map(color => <Badge onClick={() => selectColor(color.id)} key={color.id}
+                                                   color={color.name}
+                                                   className={selectedColor === color.id && "active"}/>)
+                    }
+                </div>
+                <button onClick={addList} className={"button"}>Add</button>
+            </div>}
+        </div>
+    );
 }
 
 export default AddList;
