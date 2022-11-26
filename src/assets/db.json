@@ -2,38 +2,23 @@
   "lists": [
     {
       "id": 1,
-      "name": "Продажи",
+      "name": "Personal",
       "colorId": 5
     },
     {
       "id": 2,
-      "name": "Фронтенд",
+      "name": "Work",
       "colorId": 4
     },
     {
       "id": 3,
-      "name": "Фильмы и сериалы",
+      "name": "Education",
       "colorId": 3
     },
     {
       "id": 4,
-      "name": "Книги",
+      "name": "Sport",
       "colorId": 2
-    },
-    {
-      "id": 5,
-      "name": "Личное",
-      "colorId": 1
-    },
-    {
-      "name": "Спорт",
-      "colorId": 3,
-      "id": 6
-    },
-    {
-      "name": "Курс по ReactJS ToDo",
-      "colorId": 7,
-      "id": 7
     }
   ],
   "tasks": [

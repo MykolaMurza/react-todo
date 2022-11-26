@@ -7,6 +7,9 @@
 .list__add-button:hover {
   opacity: 1;
 }
+.list span {
+  flex: 1;
+}
 .list li {
   display: flex;
   align-items: center;
@@ -16,6 +19,21 @@
 .list li .badge {
   position: relative;
   left: 5px;
+}
+.list li:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.list li:hover .list__remove-icon {
+  opacity: 0.2;
+}
+.list li .list__remove-icon {
+  opacity: 0;
+}
+.list li .list__remove-icon:hover {
+  opacity: 0.8;
+}
+.list li .list__remove-icon:active {
+  opacity: 1;
 }
 .list li.active {
   background: #FFFFFF;
