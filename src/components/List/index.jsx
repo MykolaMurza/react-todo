@@ -1,13 +1,16 @@
 import React from "react";
 import classNames from "classnames";
-import Badge from "../Badge/Badge";
+import Badge from "../Badge";
 import trashSvg from "../../assets/img/trash.svg"
 import "./List.scss";
+import axios from "axios";
 
 const List = (props) => {
     const onRemoveList = (item) => {
         if (window.confirm("Are you sure?")) {
-            props.onRemove(item);
+            axios.delete("http://localhost:3001/lists/" + item.id).then(() => {
+                props.onRemove(item.id)
+            });
         }
     }
 

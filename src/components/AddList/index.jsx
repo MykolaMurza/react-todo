@@ -1,14 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 import List from "../List";
-import Badge from "../Badge/Badge";
+import Badge from "../Badge";
 import openSvg from "../../assets/img/plus.svg";
 import closeSvg from "../../assets/img/close.svg";
 import "./AddList.scss";
 
 const AddList = ({onAddList, colors}) => {
     const [visiblePopup, setVisiblePopupState] = useState(false);
-    const [selectedColor, selectColor] = useState(colors[0].id);
+    const [selectedColor, selectColor] = useState(1);
+    const [isLoading, setLoading] = useState(false);
     const [inputValue, setInputValue] = useState("");
+
+    useEffect(() => {
+        if (Array.isArray(colors))
+            selectColor(colors[0].id);
+    }, [colors]);
 
     function onClose() {
         setVisiblePopupState(false);
@@ -22,15 +29,18 @@ const AddList = ({onAddList, colors}) => {
             return;
         }
 
-        const color = colors.find(color => color.id === selectedColor).name;
-        onAddList({
+        setLoading(true);
+        axios.post("http://localhost:3001/lists", {
             name: inputValue,
-            colorId: selectedColor,
-            id: Math.random() * 1000,
-            color
+            colorId: selectedColor
+        }).then(({data}) => {
+            const color = colors.find(color => color.id === selectedColor).name;
+            const newList = {...data, color}
+            onAddList(newList);
+            onClose();
+        }).finally(() => {
+            setLoading(false);
         });
-
-        onClose();
     }
 
     return (
@@ -53,7 +63,9 @@ const AddList = ({onAddList, colors}) => {
                                                    className={selectedColor === color.id && "active"}/>)
                     }
                 </div>
-                <button onClick={addList} className={"button"}>Add</button>
+                <button onClick={addList} className={"button"}>
+                    {isLoading ? "Adding..." : "Create"}
+                </button>
             </div>}
         </div>
     );
