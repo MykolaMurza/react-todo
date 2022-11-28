@@ -6,6 +6,7 @@ import listSvg from "./assets/img/list.svg";
 function App() {
     const [lists, setLists] = useState(null);
     const [colors, setColors] = useState(null);
+    const [activeList, setActiveList] = useState(null);
 
     useEffect(() => {
         axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks").then(({data}) => {
@@ -34,11 +35,13 @@ function App() {
                 {lists ? (<List items={lists} onRemove={id => {
                     const newList = lists.filter(item => item.id !== id);
                     setLists(newList);
-                }} isRemovable={true}/>) : ("Loading...")}
+                }} onCategoryClick={(chosenList) => {
+                    setActiveList(chosenList);
+                }} activeList={activeList} isRemovable={true}/>) : ("Loading...")}
                 <AddList onAddList={onAddList} colors={colors}/>
             </div>
             <div className={"todo__tasks"}>
-                {lists && <Tasks list={lists[1]}/>}
+                {lists && activeList && <Tasks list={activeList}/>}
             </div>
         </div>
     );

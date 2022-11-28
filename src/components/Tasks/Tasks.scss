@@ -35,6 +35,13 @@
   &__items {
     margin-top: 30px;
 
+    h2 {
+      font-weight: 700;
+      font-size: 22px;
+      color: #C9D1D3;
+      text-align: center;
+    }
+
     &-row {
       display: flex;
       align-items: center;

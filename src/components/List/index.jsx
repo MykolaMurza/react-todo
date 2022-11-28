@@ -16,19 +16,18 @@ const List = (props) => {
 
     return (
         <ul onClick={props.onClick} className={"list"}>
-            {
-                props.items.map((item, index) =>
-                    <li key={index} className={classNames(item.className, {"active": item.active},)}>
-                        <i>
-                            {item.svg ? item.svg :
-                                <Badge color={item.color}/>
-                            }
-                        </i>
-                        <span>{item.name}</span>
-                        {props.isRemovable && <img src={trashSvg} alt={"Remove icon"} className={"list__remove-icon"}
-                                                   onClick={() => onRemoveList(item)}/>}
-                    </li>)
-            }
+            {props.items.map((item, index) =>
+                <li key={index} className={classNames(item.className,
+                    {active: props.activeList && props.activeList.id === item.id})}
+                    onClick={props.onCategoryClick ? () => props.onCategoryClick(item) : null}>
+                    <i>{item.svg ? item.svg : <Badge color={item.color}/>}</i>
+                    <span>
+                            {item.name}
+                        {item.tasks && item.tasks.length > 0 && ` (${item.tasks.length})`}
+                        </span>
+                    {props.isRemovable && <img src={trashSvg} alt={"Remove icon"} className={"list__remove-icon"}
+                                               onClick={() => onRemoveList(item)}/>}
+                </li>)}
         </ul>
     );
 }

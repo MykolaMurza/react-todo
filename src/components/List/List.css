@@ -1,64 +1,55 @@
 .list {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
-
 .list__add-button {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-
 .list__add-button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
-
 .list__add-button:active {
-    opacity: 1;
+  opacity: 1;
 }
-
 .list span {
-    flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  white-space: nowrap;
 }
-
 .list li {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  cursor: pointer;
 }
-
 .list li .badge {
-    position: relative;
-    left: 5px;
+  position: relative;
+  left: 5px;
 }
-
 .list li:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
-
 .list li:hover .list__remove-icon {
-    opacity: 0.2;
+  opacity: 0.2;
 }
-
 .list li .list__remove-icon {
-    opacity: 0;
+  opacity: 0;
 }
-
 .list li .list__remove-icon:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
-
 .list li .list__remove-icon:active {
-    opacity: 1;
+  opacity: 1;
 }
-
 .list li.active {
-    background: #FFFFFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 }
-
 .list li i {
-    display: inline-flex;
-    margin-right: 8px;
+  display: inline-flex;
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=List.css.map */
