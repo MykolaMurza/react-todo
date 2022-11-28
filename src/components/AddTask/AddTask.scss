@@ -1,0 +1,36 @@
+.tasks__form {
+  margin-top: 10px;
+
+  &-block {
+    .button {
+      margin-right: 10px;
+      margin-top: 15px;
+    }
+  }
+
+  &-new {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+
+    span {
+      font-size: 16px;
+      margin-left: 16px;
+    }
+  }
+}

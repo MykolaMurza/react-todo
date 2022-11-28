@@ -21,9 +21,19 @@ function App() {
         });
     }, []);
 
-    const onAddList = (item) => {
-        item.tasks = [];
-        const newList = [...lists, item];
+    const onAddList = (list) => {
+        list.tasks = [];
+        const newList = [...lists, list];
+        setLists(newList);
+    }
+
+    const onAddTask = (listId, task) => {
+        const newList = lists.map(list => {
+            if (list.id === listId) {
+                list.tasks = [...list.tasks, task];
+            }
+            return list;
+        });
         setLists(newList);
     }
 
@@ -52,7 +62,7 @@ function App() {
                 <AddList onAddList={onAddList} colors={colors}/>
             </div>
             <div className={"todo__tasks"}>
-                {lists && activeList && <Tasks list={activeList} onEditTitle={onEditListTitle}/>}
+                {lists && activeList && <Tasks list={activeList} onEditTitle={onEditListTitle} onAddTask={onAddTask}/>}
             </div>
         </div>
     );

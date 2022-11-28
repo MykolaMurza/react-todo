@@ -1,0 +1,30 @@
+.tasks__form {
+  margin-top: 10px;
+}
+.tasks__form-block .button {
+  margin-right: 10px;
+  margin-top: 15px;
+}
+.tasks__form-new {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
+}
+.tasks__form-new:hover {
+  opacity: 0.8;
+}
+.tasks__form-new:active {
+  opacity: 1;
+}
+.tasks__form-new img {
+  width: 26px;
+  height: 26px;
+}
+.tasks__form-new span {
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+/*# sourceMappingURL=AddTask.css.map */

@@ -43,12 +43,26 @@ body {
   border: 0;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 14px;
 }
 .button:hover {
   background-color: #34cf8b;
 }
 .button:active {
   background-color: #2ec180;
+}
+.button:disabled {
+  background-color: #d8d8d8;
+}
+.button-cancel {
+  background-color: #F4F6F8;
+  color: #444;
+}
+.button-cancel:hover {
+  background-color: #e1e7ec;
+}
+.button-cancel:active {
+  background-color: #d5dde4;
 }
 
 .field {
@@ -58,6 +72,7 @@ body {
   border-radius: 4px;
   padding: 8px 12px;
   width: 100%;
+  font-size: 14px;
 }
 .field:focus {
   border-color: #DBDBDB;

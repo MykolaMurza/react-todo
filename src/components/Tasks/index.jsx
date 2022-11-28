@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import AddTask from "../AddTask"
 import penSvg from "../../assets/img/pen.svg"
 import "./Tasks.scss";
 
-const Tasks = ({list, onEditTitle}) => {
+const Tasks = ({list, onEditTitle, onAddTask}) => {
     const editTitle = () => {
         const newTitle = prompt("Enter new category title", list.name);
         if (newTitle) {
@@ -38,6 +39,7 @@ const Tasks = ({list, onEditTitle}) => {
                         <input readOnly value={task.text}/>
                     </div>
                 )}
+                <AddTask list={list} onAddTask={onAddTask}/>
             </div>
         </div>
     );

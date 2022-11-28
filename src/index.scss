@@ -45,6 +45,7 @@ body {
   border: 0;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 14px;
 
   &:hover {
     background-color: darken(#4DD599, 6%);
@@ -52,6 +53,23 @@ body {
 
   &:active {
     background-color: darken(#4DD599, 10%);;
+  }
+
+  &:disabled {
+    background-color: #d8d8d8;;
+  }
+
+  &-cancel {
+    background-color: #F4F6F8;
+    color: #444;
+
+    &:hover {
+      background-color: darken(#F4F6F8, 6%);
+    }
+
+    &:active {
+      background-color: darken(#F4F6F8, 10%);;
+    }
   }
 }
 
@@ -62,6 +80,7 @@ body {
   border-radius: 4px;
   padding: 8px 12px;
   width: 100%;
+  font-size: 14px;
 
   &:focus {
     border-color: #DBDBDB;
