@@ -55,13 +55,13 @@ const AddList = ({onAddList, colors}) => {
                 <img onClick={onClose} src={closeSvg} alt={"Close button"}
                      className={"add-list__popup-close-btn"}/>
                 <input className={"field"} type={"text"} placeholder={"Category name..."} value={inputValue}
-                       onChange={event => setInputValue(event.target.value)}/>
+                       onChange={event => setInputValue(event.target.value)} onKeyDown={(e) => {
+                    if (e.key === "Enter") addList()
+                }}/>
                 <div className={"add-list__popup-colors"}>
-                    {
-                        colors.map(color => <Badge onClick={() => selectColor(color.id)} key={color.id}
-                                                   color={color.name}
-                                                   className={selectedColor === color.id && "active"}/>)
-                    }
+                    {colors.map(color => <Badge onClick={() => selectColor(color.id)} key={color.id}
+                                                color={color.name}
+                                                className={selectedColor === color.id && "active"}/>)}
                 </div>
                 <button onClick={addList} className={"button"}>
                     {isLoading ? "Adding..." : "Create"}

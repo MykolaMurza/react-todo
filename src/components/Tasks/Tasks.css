@@ -32,6 +32,8 @@
   font-size: 22px;
   color: #C9D1D3;
   text-align: center;
+  left: 50%;
+  top: 50%;
 }
 .tasks__items-row {
   display: flex;

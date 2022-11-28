@@ -1,16 +1,27 @@
 import React from "react";
-import "./Tasks.scss";
+import axios from "axios";
 import penSvg from "../../assets/img/pen.svg"
+import "./Tasks.scss";
 
-const Tasks = ({list}) => {
+const Tasks = ({list, onEditTitle}) => {
+    const editTitle = () => {
+        const newTitle = prompt("Enter new category title", list.name);
+        if (newTitle) {
+            axios
+                .patch("http://localhost:3001/lists/" + list.id, {name: newTitle})
+                .then(onEditTitle(list.id, newTitle))
+                .catch(reason => alert(reason.message));
+        }
+    }
+
     return (
         <div className={"tasks"}>
             <h2 className={"tasks__title"}> {list.name}
-                <img src={penSvg} alt={"Edit category name icon"}/>
+                <img onClick={editTitle} src={penSvg} alt={"Edit category name icon"}/>
             </h2>
 
             <div className={"tasks__items"}>
-                {!list.tasks.length && <h2>There is no tasks! Soon...</h2>}
+                {!list.tasks.length && <h2>There is no tasks!</h2>}
                 {list.tasks.map(task =>
                     <div key={task.id} className={"tasks__items-row"}>
                         <div className={"checkbox"}>

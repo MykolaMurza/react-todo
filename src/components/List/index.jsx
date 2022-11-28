@@ -1,9 +1,9 @@
 import React from "react";
+import axios from "axios";
 import classNames from "classnames";
 import Badge from "../Badge";
 import trashSvg from "../../assets/img/trash.svg"
 import "./List.scss";
-import axios from "axios";
 
 const List = (props) => {
     const onRemoveList = (item) => {
