@@ -20,7 +20,7 @@ const List = (props) => {
                 <li key={index} className={classNames(item.className,
                     {active: props.activeList && props.activeList.id === item.id})}
                     onClick={props.onCategoryClick ? () => props.onCategoryClick(item) : null}>
-                    <i>{item.svg ? item.svg : <Badge color={item.color}/>}</i>
+                    <i>{item.svg ? item.svg : <Badge color={item.color.name}/>}</i>
                     <span>
                             {item.name}
                         {item.tasks && item.tasks.length > 0 && ` (${item.tasks.length})`}

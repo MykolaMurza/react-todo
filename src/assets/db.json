@@ -19,6 +19,16 @@
       "id": 4,
       "name": "Sport",
       "colorId": 2
+    },
+    {
+      "name": "Movies",
+      "colorId": 6,
+      "id": 5
+    },
+    {
+      "name": "Purchase",
+      "colorId": 8,
+      "id": 6
     }
   ],
   "tasks": [
@@ -35,10 +45,28 @@
       "id": 7
     },
     {
-      "listId": 4,
-      "text": "Watch World Cup 2022 :)",
+      "listId": 5,
+      "text": "1899",
       "completed": false,
-      "id": 8
+      "id": 9
+    },
+    {
+      "listId": 4,
+      "text": "Play football with friends.",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "listId": 1,
+      "text": "Grow new plant in the garden.",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 3,
+      "text": "Use react-router in pet project!",
+      "completed": false,
+      "id": 12
     }
   ],
   "colors": [

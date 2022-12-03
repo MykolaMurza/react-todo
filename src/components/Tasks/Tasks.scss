@@ -1,6 +1,10 @@
 .tasks {
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+
   &__title {
-    font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', "Roboto", "Ubuntu", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Roboto", "Ubuntu", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -45,11 +49,46 @@
     }
 
     &-row {
+      $row: &;
       display: flex;
       align-items: center;
       margin-bottom: 15px;
 
-      input {
+      &:hover &-actions {
+        opacity: 1;
+      }
+
+      &-actions {
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          background-color: lighten(#F4F6F8, 3%);
+          border-right: 6px;
+          margin-left: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(#F4F6F8, 1%);
+
+            img {
+              opacity: 0.8;
+            }
+          }
+
+          img {
+            opacity: 0.4;
+          }
+        }
+      }
+
+      p {
         margin-left: 15px;
         border: 0;
         font-size: 16px;

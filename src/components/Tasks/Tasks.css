@@ -1,3 +1,6 @@
+.tasks:not(:last-of-type) {
+  margin-bottom: 40px;
+}
 .tasks__title {
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Roboto", "Ubuntu", sans-serif;
   font-style: normal;
@@ -40,7 +43,35 @@
   align-items: center;
   margin-bottom: 15px;
 }
-.tasks__items-row input {
+.tasks__items-row:hover .tasks__items-row-actions {
+  opacity: 1;
+}
+.tasks__items-row-actions {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+.tasks__items-row-actions div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #fdfefe;
+  border-right: 6px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.tasks__items-row-actions div:hover {
+  background-color: #f1f3f6;
+}
+.tasks__items-row-actions div:hover img {
+  opacity: 0.8;
+}
+.tasks__items-row-actions div img {
+  opacity: 0.4;
+}
+.tasks__items-row p {
   margin-left: 15px;
   border: 0;
   font-size: 16px;
