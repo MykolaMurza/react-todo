@@ -34,8 +34,8 @@ const AddList = ({onAddList, colors}) => {
             name: inputValue,
             colorId: selectedColor
         }).then(({data}) => {
-            const color = colors.find(color => color.id === selectedColor).name;
-            const newList = {...data, color}
+            const color = colors.find(color => color.id === selectedColor);
+            const newList = {...data, color: {name: color.name, hex: color.hex}}
             onAddList(newList);
             onClose();
         }).finally(() => {
