@@ -5,11 +5,15 @@ import trashSvg from "../../assets/img/trash.svg"
 import penSvg from "../../assets/img/pen.svg"
 import "./Task.scss";
 
-const Task = ({listId, task, onRemove, onEdit}) => {
+const Task = ({listId, task, onRemove, onEdit, onComplete}) => {
+    const onChangeCheckbox = (e) => {
+        onComplete(listId, task, e.target.checked);
+    }
+
     return (
         <div className={"tasks__items-row"}>
             <div className={"checkbox"}>
-                <input type={"checkbox"} id={`task-${task.id}`}/>
+                <input onChange={onChangeCheckbox} type={"checkbox"} id={`task-${task.id}`} checked={task.completed}/>
                 <label htmlFor={`task-${task.id}`}>
                     <svg width="11" height="8" viewBox="0 0 11 8" fill="none"
                          xmlns="http://www.w3.org/2000/svg">

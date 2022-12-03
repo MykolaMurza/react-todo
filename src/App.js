@@ -1,7 +1,8 @@
+// Libraries:
 import React, {useEffect, useState} from "react";
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
-
+// Project files:
 import {AddList, List, Tasks} from "./components/Component"
 import listSvg from "./assets/img/list.svg";
 
@@ -94,6 +95,32 @@ function App() {
         }
     }
 
+    const onCompleteTask = (listId, oldTask, completed) => {
+        console.log(listId, oldTask, completed);
+
+        const newTask = {
+            "listId": listId,
+            "text": oldTask.text,
+            "completed": completed,
+            "id": oldTask.id
+        }
+        axios
+            .patch("http://localhost:3001/tasks/" + oldTask.id, {completed: completed})
+            .then(() => {
+                const newList = lists.map(list => {
+                    if (list.id === listId) {
+                        list.tasks = list.tasks.map(task => {
+                            if (task.id === oldTask.id) task = newTask;
+                            return task;
+                        });
+                    }
+                    return list;
+                })
+                setLists(newList);
+            })
+            .catch(reason => alert(reason.message));
+    }
+
     const onEditListTitle = (id, newTitle) => {
         const newList = lists.map(list => {
             if (list.id === id) {
@@ -130,6 +157,7 @@ function App() {
                                    onAddTask={onAddTask}
                                    onRemoveTask={onRemoveTask}
                                    onEditTask={onEditTask}
+                                   onCompleteTask={onCompleteTask}
                                    withoutEmpty/>
                         )
                     }/>
@@ -138,7 +166,8 @@ function App() {
                                onEditTitle={onEditListTitle}
                                onAddTask={onAddTask}
                                onRemoveTask={onRemoveTask}
-                               onEditTask={onEditTask}/>
+                               onEditTask={onEditTask}
+                               onCompleteTask={onCompleteTask}/>
                     }/>
                 </Routes>
             </div>

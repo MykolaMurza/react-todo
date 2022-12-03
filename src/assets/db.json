@@ -41,13 +41,13 @@
     {
       "listId": 3,
       "text": "Learn React.js",
-      "completed": false,
+      "completed": true,
       "id": 7
     },
     {
       "listId": 5,
-      "text": "1899",
-      "completed": false,
+      "text": "Series '1899'",
+      "completed": true,
       "id": 9
     },
     {
@@ -65,8 +65,14 @@
     {
       "listId": 3,
       "text": "Use react-router in pet project!",
-      "completed": false,
+      "completed": true,
       "id": 12
+    },
+    {
+      "listId": 2,
+      "text": "One more? :)",
+      "completed": false,
+      "id": 13
     }
   ],
   "colors": [

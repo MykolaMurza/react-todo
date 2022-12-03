@@ -1,5 +1,7 @@
+// Libraries:
 import React from "react";
 import axios from "axios";
+// Project files:
 import classNames from "classnames";
 import Badge from "../Badge";
 import trashSvg from "../../assets/img/trash.svg"

@@ -1,5 +1,7 @@
+// Libraries:
 import React from "react";
 import classNames from "classnames";
+// Project files:
 import "./Badge.scss";
 
 const Badge = ({color, onClick, className}) => {

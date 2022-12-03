@@ -1,7 +1,9 @@
+// Libraries:
 import React, {useState} from "react";
+import axios from "axios";
+// Project files:
 import plusSvg from "../../assets/img/plus.svg";
 import "./AddTask.scss";
-import axios from "axios";
 
 const AddTask = ({list, onAddTask}) => {
     const [formVisible, setFormVisibility] = useState(false);

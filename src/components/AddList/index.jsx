@@ -1,5 +1,7 @@
+// Libraries:
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+// Project files:
 import List from "../List";
 import Badge from "../Badge";
 import openSvg from "../../assets/img/plus.svg";

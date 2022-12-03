@@ -1,6 +1,8 @@
+// Libraries:
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter as Router} from "react-router-dom";
+// Project files:
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./index.scss";
