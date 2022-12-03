@@ -1,6 +1,9 @@
 .tasks:not(:last-of-type) {
   margin-bottom: 40px;
 }
+.tasks a {
+  text-decoration: none;
+}
 .tasks__title {
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Roboto", "Ubuntu", sans-serif;
   font-style: normal;

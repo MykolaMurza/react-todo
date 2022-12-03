@@ -135,6 +135,7 @@ function App() {
         <div className={"todo"}>
             <div className={"todo__sidebar"}>
                 <List items={[{
+                    active: location.pathname === '/',
                     svg: <img src={listSvg} alt={"Category list"}/>, name: "Categories"
                 }]} onCategoryClick={() => {
                     navigate("/");

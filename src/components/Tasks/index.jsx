@@ -6,6 +6,7 @@ import AddTask from "../AddTask"
 import Task from "../Task";
 import penSvg from "../../assets/img/pen.svg"
 import "./Tasks.scss";
+import {Link} from "react-router-dom";
 
 const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onCompleteTask, withoutEmpty}) => {
     const editTitle = () => {
@@ -20,9 +21,11 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, onEditTask, onComple
 
     return (
         <div className={"tasks"}>
-            <h2 style={{color: list.color.hex}} className={"tasks__title"}> {list.name}
-                <img onClick={editTitle} src={penSvg} alt={"Edit category name icon"}/>
-            </h2>
+            <Link to={`/lists/${list.id}`}>
+                <h2 style={{color: list.color.hex}} className={"tasks__title"}> {list.name}
+                    <img onClick={editTitle} src={penSvg} alt={"Edit category name icon"}/>
+                </h2>
+            </Link>
 
             <div className={"tasks__items"}>
                 {!withoutEmpty && !list.tasks.length && <h2>There is no tasks!</h2>}

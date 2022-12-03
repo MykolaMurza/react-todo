@@ -19,8 +19,10 @@ const List = (props) => {
     return (
         <ul onClick={props.onClick} className={"list"}>
             {props.items.map((item, index) =>
-                <li key={index} className={classNames(item.className,
-                    {active: props.activeList && props.activeList.id === item.id})}
+                <li key={index}
+                    className={classNames(item.className, {
+                        active: item.active ? item.active : props.activeList && props.activeList.id === item.id
+                    })}
                     onClick={props.onCategoryClick ? () => props.onCategoryClick(item) : null}>
                     <i>{item.svg ? item.svg : <Badge color={item.color.name}/>}</i>
                     <span>
